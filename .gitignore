@@ -32,7 +32,6 @@ yarn-debug.log
 
 # React
 build/
-public/
 
 # General
 .DS_Store

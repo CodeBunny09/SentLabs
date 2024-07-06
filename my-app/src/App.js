@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import dummyResponses from './dummy_responses.json';
 
 function App() {
   const [inputText, setInputText] = useState('');
   const [error, setError] = useState('');
   const [showOutput, setShowOutput] = useState(false);
+  const [response, setResponse] = useState({});
 
   const handleInputChange = (e) => {
     setInputText(e.target.value);
@@ -18,7 +18,29 @@ function App() {
     }
 
     setError('');
-    setShowOutput(true);
+    
+    // Make the API call
+    fetch('http://localhost:8000/api/summarize/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text: inputText }),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        setResponse(data);
+        setShowOutput(true);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setError('An error occurred while fetching the summary. See console for details.');
+      });
   };
 
   return (
@@ -40,11 +62,11 @@ function App() {
         <div className="output-container">
           <div className="summary-container">
             <div className="summary-text">
-              <div className="summary-text-inner">{dummyResponses.summary}</div>
+              <div className="summary-text-inner">{response.summary}</div>
             </div>
           </div>
           <div className="wordcloud-container">
-            <img src={dummyResponses.wordcloud} alt="Word Cloud" className="wordcloud-image" />
+            <img src={response.wordcloud} alt="Word Cloud" className="wordcloud-image" />
           </div>
         </div>
       )}

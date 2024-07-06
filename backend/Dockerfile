@@ -15,8 +15,8 @@ RUN pip install -r requirements.txt
 # Copy project files
 COPY . /code/
 
-# Grant execute permission to setup.sh (if needed)
+# Grant execute permission to setup.sh
 RUN chmod +x setup.sh
 
-# Command to start the Django server when the container starts
-CMD ["python manage.py makemigrations && python manafe.py migrate &&",  "python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run migrations and start the server
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
