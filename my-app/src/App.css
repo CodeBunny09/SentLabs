@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212;
+  color: #00ff00;
+}
+
+.App {
+  text-align: center;
+  padding: 50px;
+}
+
+.app-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #00ff00;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+textarea {
+  width: 80%;
+  max-width: 800px;
+  height: 200px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #00ff00;
+  background-color: #1e1e1e;
+  color: #00ff00;
+  font-size: 1.2rem;
+  resize: none;
+  outline: none;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #121212;
+  background-color: #00ff00;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #00cc00;
+}
+
+.error-message {
+  color: #ff5252;
+  animation: shake 0.5s;
+}
+
+.output-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  flex-direction: row;
+}
+
+.summary-container,
+.wordcloud-container {
+  flex: 1;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50%;
+}
+
+.summary-container {
+  max-width: 500px;
+}
+
+
+
+
+
+.summary-text {
+  color: #ffffff;
+  max-height: 350px;
+  padding: 15px;
+  overflow: hidden;
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: left;
+  position: relative;
+}
+
+.summary-text-inner {
+  max-height: 100%;
+  overflow-y: auto; /* Enable scrolling */
+  padding-right: 15px;
+  transition: opacity 0.3s ease-out;
+  margin-right: -15px; /* Compensate for padding to prevent content overflow */
+}
+
+.summary-text-inner::-webkit-scrollbar {
+  width: 0px; /* Hide scrollbar for webkit browsers */
+  background: transparent;
+}
+
+.summary-text-inner:hover {
+  opacity: 0.9;
+}
+
+.summary-text-inner:hover::-webkit-scrollbar {
+  width: 8px; /* Show scrollbar on hover */
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent scrollbar */
+}
+
+
+
+
+
+
+
+
+.wordcloud-image {
+  width: 100%;
+  max-width: 500px;
+  max-height: 350px;
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
