@@ -1,0 +1,60 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.so
+*.egg
+*.egg-info
+.eggs/
+*.manifest
+*.spec
+
+# Django
+*.log
+*.pot
+*.py[cod]
+*.sqlite3
+*.db
+*.env
+*.env.*
+local_settings.py
+.envrc
+
+# Django migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# React
+build/
+public/
+
+# General
+.DS_Store
+*.swp
+.sass-cache
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
+
+# Virtual Environment
+venv/
+.env/
+.env.bak/
+.env.docker/
+
+# Docker
+*.log
+*.pid
+*.seed
+*.pid.lock
+*.pidfile
+
+# Docker specific
+docker-compose.override.yml
